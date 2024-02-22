@@ -1,6 +1,6 @@
 import re
 from collections import UserDict
-from typing import Optional, List
+from typing import List, Optional
 
 
 class Field:
@@ -17,7 +17,7 @@ class Name(Field):
 
 class Phone(Field):
     def __init__(self, value: str):
-        if not re.match(r'^\d{10}$', value):
+        if not re.match(r"^\d{10}$", value):
             raise ValueError("Phone number must contain exactly 10 digits.")
         super().__init__(value)
 
@@ -63,7 +63,7 @@ class AddressBook(UserDict):
             print(f"No records found by the name {name}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Створення нової адресної книги
     book = AddressBook()
 
