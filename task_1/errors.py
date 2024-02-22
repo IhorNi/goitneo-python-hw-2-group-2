@@ -9,6 +9,7 @@ HELP_ERROR_MESSAGE = """Supported functions:
 
 class InputError(Exception):
     """Base class for other input exceptions"""
+
     pass
 
 
@@ -33,4 +34,5 @@ def input_error(func):
             return func(*args, **kwargs)
         except InputError as e:
             return str(e)
+
     return inner

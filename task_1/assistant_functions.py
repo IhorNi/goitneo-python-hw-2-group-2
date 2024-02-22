@@ -1,8 +1,8 @@
 """CLI assistant functions"""
 
 from typing import Optional
-from errors import input_error, AddInputError, ChangeInputError, PhoneInputError
 
+from errors import AddInputError, ChangeInputError, PhoneInputError, input_error
 
 Contacts = dict[str, str]
 CommandArguments = list[str]
@@ -11,7 +11,7 @@ CommandArguments = list[str]
 def parse_input(user_input: str) -> tuple[str, Optional[CommandArguments]]:
     if not user_input.strip():
         return "", None
-    
+
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
 
@@ -60,4 +60,4 @@ def print_all(contacts: Contacts) -> str:
     if not contacts:
         return "No contacts stored."
     else:
-        return '\n'.join([f'{name}: {phone}' for name, phone in contacts.items()])
+        return "\n".join([f"{name}: {phone}" for name, phone in contacts.items()])
